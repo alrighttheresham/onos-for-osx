@@ -49,3 +49,9 @@ This will write the release to the tmp directory for e.g.
       -rw-r--r--  1 damianoneill  wheel    81M 18 Jun 09:43 /tmp/onos-1.3.0.damianoneill.zip
 
 
+# Running ONOS on dev machine
+We'll use the onos-karaf and corresponding ok alias to run locally 
+
+       $ export ONOS_IP=172.27.2.182; export ONOS_APPS=drivers,openflow,proxyarp,mobility,fwd; ok clean
+
+
