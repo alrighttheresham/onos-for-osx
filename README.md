@@ -64,13 +64,13 @@ Currently the learning of a new NETCONF Device by the platform is done via a con
        #
        devConfigs = admin:admin@172.27.5.125:2022:active,cisco:cisco@192.168.56.20:2022:inactive,sdn:rocks@192.168.56.30:22:inactive
         
-	#
-	# Number of ports per device. This is global to all devices
-	# on all instances.
-	#
-	# numPorts = 8
+       #
+       # Number of ports per device. This is global to all devices
+       # on all instances.
+       #
+       # numPorts = 8
 	 
-As you can see I've added an entry for 172.27.7.125, once the configuration is completed we need to start ONOS and load the netconf feature bundle.
+I've added an entry for 172.27.7.125, once the configuration is completed we need to start ONOS and load the netconf feature bundle.
 
 
        onos> feature:install onos-netconf
