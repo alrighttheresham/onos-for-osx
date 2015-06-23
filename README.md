@@ -62,7 +62,7 @@ Currently the learning of a new NETCONF Device by the platform is done via a con
        # Instance-specific configurations, in this case, the number of
        # devices per node.
        #
-       devConfigs = admin:admin@172.27.5.125:2022:active,cisco:cisco@192.168.56.20:2022:inactive,sdn:rocks@192.168.56.30:22:inactive
+       devConfigs = admin:admin@172.27.7.125:2022:active,cisco:cisco@192.168.56.20:2022:inactive,sdn:rocks@192.168.56.30:22:inactive
         
        #
        # Number of ports per device. This is global to all devices
