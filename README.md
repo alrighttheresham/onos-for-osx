@@ -94,4 +94,6 @@ You can confirm that the Device loaded correctly from the NETCONF configuration 
 
 Or by tailing the log. 
 
+See below for a screen shot of the 7800 Network Element in ONOS GUI.  
 
+![Alt text](/images/onos-with-7800.png?raw=true "7800 Network Element")
