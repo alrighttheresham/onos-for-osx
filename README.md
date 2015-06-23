@@ -54,4 +54,44 @@ We'll use the onos-karaf and corresponding ok alias to run locally
 
        $ export ONOS_IP=172.27.2.182; export ONOS_APPS=drivers,openflow,proxyarp,mobility,fwd; ok clean
 
+# Loading a NETCONF (BTI 7800) Device into ONOS
+Currently the learning of a new NETCONF Device by the platform is done via a configuration file.  
+
+       cat ~/Applications/apache-karaf-3.0.3/etc/org.onosproject.provider.netconf.device.impl.NetconfDeviceProvider.cfg
+       #
+       # Instance-specific configurations, in this case, the number of
+       # devices per node.
+       #
+       devConfigs = admin:admin@172.27.5.125:2022:active,cisco:cisco@192.168.56.20:2022:inactive,sdn:rocks@192.168.56.30:22:inactive
+        
+	#
+	# Number of ports per device. This is global to all devices
+	# on all instances.
+	#
+	# numPorts = 8
+	 
+As you can see I've added an entry for 172.27.7.125, once the configuration is completed we need to start ONOS and load the netconf feature bundle.
+
+
+       onos> feature:install onos-netconf
+       onos> list
+       START LEVEL 100 , List Threshold: 50
+       ID | State  | Lvl | Version          | Name
+       ------------------------------------------------------------------------------
+       40 | Active |  80 | 2.6              | Commons Lang
+       41 | Active |  80 | 3.3.2            | Apache Commons Lang
+       42 | Active |  80 | 1.10.0           | Apache Commons Configuration
+       43 | Active |  80 | 18.0.0           | Guava: Google Core Libraries for Java
+       ...
+       174 | Active |  80 | 1.3.0.SNAPSHOT   | onos-netconf-provider-device
+
+As you can see from the list command the last feature loaded was the netconf provider
+
+You can confirm that the Device loaded correctly from the NETCONF configuration file with the following command
+
+       onos> onos:devices
+       id=netconf:admin@172.27.7.125:2022, available=true, role=MASTER, type=OTHER, mfr=, hw=, sw=, serial=
+
+Or by tailing the log. 
+
 
